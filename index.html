@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 font-sans pb-20">
+    <style>
+        html {
+            overflow: hidden;
+        }
+    </style>
+
+
+    <nav class="bg-indigo-700 text-white flex justify-around p-4 shadow-md sticky top-0 z-10">
+        <button onclick="navegar('vendas')" class="uppercase font-bold tracking-widest text-xs">Vendas</button>
+        <button onclick="navegar('caixa')" class="uppercase font-bold tracking-widest text-xs">Caixa / Receber</button>
+    </nav>
+
+    <main class="p-4 max-w-md mx-auto">
+
+        <!-- TELA DE VENDAS -->
+        <section id="tela-vendas">
+            <h2 class="text-xl font-bold mb-4 text-gray-700">Registrar Venda</h2>
+            <form id="form-venda" class="space-y-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border">
+                    <label class="block text-xs font-bold text-gray-500 uppercase">Nome da Cliente</label>
+                    <input type="text" id="cliente" class="w-full text-lg border-b p-2 focus:outline-none" required>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border">
+                    <label class="block text-xs font-bold text-gray-500 uppercase">Perfume</label>
+                    <input type="text" id="perfume" class="w-full text-lg border-b p-2 focus:outline-none" required>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border">
+                    <label class="block text-xs font-bold text-gray-500 uppercase">Valor (R$)</label>
+                    <input type="number" id="valor" class="w-full text-lg border-b p-2 focus:outline-none" step="0.01"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white p-4 rounded-xl font-bold shadow-lg">SALVAR</button>
+            </form>
+        </section>
+
+        <!-- TELA DE CAIXA -->
+        <!-- A seção agora ocupa a altura disponível e não deixa o conteúdo "vazar" -->
+        <section id="tela-caixa" class="hidden flex flex-col h-[calc(100vh-80px)] overflow-hidden">
+
+            <!-- CABEÇALHO FIXO: Sem rolagem aqui -->
+            <div class="flex-none p-4 bg-gray-50 border-b border-gray-200 z-30">
+                <!-- Card de Saldo no Caixa -->
+                <div class="bg-indigo-900 text-white p-5 rounded-3xl mb-4 shadow-xl shadow-indigo-100 relative">
+                    <p class="text-[10px] opacity-70 uppercase font-black tracking-widest mb-1 text-indigo-200 italic">
+                        Dinheiro em Caixa (Hoje)</p>
+                    <div class="flex justify-between items-center">
+                        <p id="valor-caixa-dia" class="text-3xl font-black font-mono">R$ 0,00</p>
+                        <button onclick="zerarCaixa()"
+                            class="bg-white/10 p-2 rounded-xl border border-white/20 active:bg-red-500">
+                            <span class="text-[10px] font-bold uppercase px-2 text-white">Zerar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Banner de Total a Receber -->
+                <div
+                    class="flex justify-between items-center bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                    <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest leading-none">Ainda a
+                        Receber</p>
+                    <p id="total-pendente" class="text-xl font-black text-amber-600 font-mono italic leading-none">R$
+                        0,00</p>
+                </div>
+
+                <h2 class="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-6 px-2 mb-2">Vendas
+                    Pendentes</h2>
+            </div>
+
+            <!-- ÁREA DE ROLAGEM: Somente os cards rolam aqui dentro -->
+            <div class="flex-1 overflow-y-auto px-4 pb-32 custom-scroll" id="container-scroll">
+                <div id="lista-pendentes" class="space-y-4 pt-2">
+                    <!-- Cards injetados -->
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+    </main>
+
+    <!-- Importando o Script Externo -->
+    <script src="app.js"></script>
+</body>
+
+</html>
