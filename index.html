@@ -48,7 +48,11 @@
         <!-- TELA DE CAIXA -->
         <!-- A seção agora ocupa a altura disponível e não deixa o conteúdo "vazar" -->
         <section id="tela-caixa" class="hidden flex flex-col h-[calc(100vh-80px)] overflow-hidden">
-
+            <button onclick="carregarDadosIniciais()"
+                class="p-2 bg-indigo-800 text-white rounded-lg active:scale-90 transition-all flex items-center gap-2">
+                <span>🔄</span>
+                <span class="text-[10px] font-bold uppercase text-indigo-200">Sincronizar</span>
+            </button>
             <!-- CABEÇALHO FIXO: Sem rolagem aqui -->
             <div class="flex-none p-4 bg-gray-50 border-b border-gray-200 z-30">
                 <!-- Card de Saldo no Caixa -->
