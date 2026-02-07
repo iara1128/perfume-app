@@ -72,7 +72,16 @@ function renderizarCaixa() {
   const displayPendente = document.getElementById("total-pendente");
   const displayCaixa = document.getElementById("valor-caixa-dia");
 
-  const pendentes = vendas.filter((v) => v.status === "pendente");
+  // Pega o que foi digitado (em letras minúsculas para não ter erro)
+  const termoBusca =
+    document.getElementById("filtro-cliente")?.value.toLowerCase() || "";
+
+  // Filtra as vendas: primeiro por status 'pendente', depois pelo nome do cliente
+  const pendentes = vendas.filter((v) => {
+    const correspondeStatus = v.status === "pendente";
+    const correspondeNome = v.cliente.toLowerCase().includes(termoBusca);
+    return correspondeStatus && correspondeNome;
+  });
   const totalPendente = pendentes.reduce((acc, v) => acc + v.valor, 0);
 
   if (displayPendente)
