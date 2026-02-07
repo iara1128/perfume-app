@@ -4,7 +4,7 @@ let valorEmCaixa = 0; // Agora inicia em 0 e carrega do banco
 
 // URL da API (Render)
 const API_URL = "https://perfume-api-zs6w.onrender.com/vendas";
-const CAIXA_URL = "https://perfume-api-zs6w.onrender.com"; // Nova URL para o Caixa
+const CAIXA_URL = "https://perfume-api-zs6w.onrender.com/caixa"; // Nova URL para o Caixa
 
 // 2. Carregar Vendas e Caixa ao Iniciar
 async function carregarDadosIniciais() {
