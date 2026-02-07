@@ -82,22 +82,23 @@
                     <p id="total-pendente" class="text-xl font-black text-amber-600 font-mono italic leading-none">R$
                         0,00</p>
                 </div>
+                <div class="px-2 mb-4">
+                    <div class="relative group">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            🔍
+                        </span>
+                        <input type="text" id="filtro-cliente" placeholder="Buscar cliente..."
+                            class="w-full bg-white border border-gray-200 rounded-2xl py-3 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all shadow-sm"
+                            oninput="renderizarCaixa()">
+                    </div>
+                </div>
 
                 <h2 class="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-6 px-2 mb-2">Vendas
                     Pendentes</h2>
             </div>
 
             <!-- Coloque isso dentro da section id="tela-caixa", após o banner de 'Ainda a Receber' -->
-            <div class="px-2 mb-4">
-                <div class="relative group">
-                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-                        🔍
-                    </span>
-                    <input type="text" id="filtro-cliente" placeholder="Buscar cliente..."
-                        class="w-full bg-white border border-gray-200 rounded-2xl py-3 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all shadow-sm"
-                        oninput="renderizarCaixa()">
-                </div>
-            </div>
+
 
             <!-- ÁREA DE ROLAGEM: Somente os cards rolam aqui dentro -->
             <div class="flex-1 overflow-y-auto px-4 pb-32 custom-scroll" id="container-scroll">
